@@ -1,0 +1,14 @@
+_core:
+  default_config_hash: VDJxTZtQR21qB4lvOq8zszJZLvLKrSPQpdn2E3T71Ww
+langcode: es
+uuid: 98a77777-cc20-4151-ac06-7f2426bd7c5b
+name: 'Recemos Juntos'
+mail: l.miranda0892@gmail.com
+slogan: 'A Jesús por María'
+page:
+  403: ''
+  404: ''
+  front: /node
+admin_compact_mode: false
+weight_select_max: 100
+default_langcode: es

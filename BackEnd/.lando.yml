@@ -1,0 +1,30 @@
+name: recemos-juntos
+recipe: drupal9
+config:
+  webroot: web
+  php: '8.1'
+  xdebug: true
+  composer_version: '2.1.14'
+  mysql: 5.7
+proxy:
+  mailhog:
+    - mail.recemos-juntos.lndo.site
+services:
+  appserver:
+    config:
+      php: devops/php/php.ini
+    overrides:
+      environment:
+        DRUSH_OPTIONS_URI: https://recemos-juntos.lndo.site
+        PHP_IDE_CONFIG: serverName=recemos-juntos.lndo.site
+    build:
+      - composer install
+      - chmod -R 777 web/sites/
+      - cp devops/drupal/settings.local.php web/sites/default
+      - cp devops/drupal/development.services.local.yml web/sites
+  mailhog:
+    type: mailhog
+    hogfrom:
+      - appserver
+
+
